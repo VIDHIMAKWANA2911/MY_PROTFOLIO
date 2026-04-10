@@ -94,6 +94,17 @@ const projects = [
     demo: 'https://aesthetic-boba-315e19.netlify.app/',
     github: 'https://github.com/VIDHIMAKWANA2911',
   },
+  {
+    title: 'Todo List App',
+    category: 'JavaScript',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Vite'],
+    description: 'Task manager to add, complete, and organize daily work with a clean, responsive interface.',
+    image: '/projects/dashboard.png',
+    details:
+      'Built with Vite for a fast dev workflow. Focused on clear UI structure, task interactions, and maintainable vanilla JavaScript.',
+    demo: null,
+    github: 'https://github.com/VIDHIMAKWANA2911/TO_DO_LIST',
+  }
 ]
 
 const skills = [
@@ -312,7 +323,20 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+          
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="chip"><FaCode className="text-fuchsia-400" /> Scalable Systems</span>
+              <span className="chip"><FaPaintBrush className="text-indigo-400" /> UI Craftsmanship</span>
+              <span className="chip"><FaReact className="text-cyan-400" /> Component Architect</span>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="md:col-span-2 space-y-6"
+          >
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
               <h5 className="mb-3 text-sm font-bold tracking-widest text-fuchsia-400 uppercase">Education</h5>
               <div className="space-y-3">
                 <div className="rounded-xl border border-white/10 p-3">
@@ -327,30 +351,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="chip"><FaCode className="text-fuchsia-400" /> Scalable Systems</span>
-              <span className="chip"><FaPaintBrush className="text-indigo-400" /> UI Craftsmanship</span>
-              <span className="chip"><FaReact className="text-cyan-400" /> Component Architect</span>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="md:col-span-2 space-y-6"
-          >
-            <div className="card bg-linear-to-br from-fuchsia-600/10 to-indigo-600/10 text-center">
-              <p className="text-4xl font-black text-white">2+</p>
-              <p className="text-sm font-medium uppercase tracking-widest opacity-70">Years of Focus</p>
-            </div>
-            <div className="card bg-linear-to-br from-cyan-600/10 to-fuchsia-600/10 text-center">
-              <p className="text-4xl font-black text-white">10+</p>
-              <p className="text-sm font-medium uppercase tracking-widest opacity-70">Projects Delivered</p>
-            </div>
-            <div className="card bg-linear-to-br from-indigo-600/10 to-slate-700/10 text-center">
-              <p className="text-4xl font-black text-white">99%</p>
-              <p className="text-sm font-medium uppercase tracking-widest opacity-70">Client Satisfaction</p>
-            </div>
+            
             <div className="card flex items-center justify-center gap-4 bg-fuchsia-500/10 border-fuchsia-500/20">
                <a href="/resume.pdf" download className="flex items-center gap-2 font-bold text-fuchsia-400 hover:text-fuchsia-300 transition-colors">
                  <FaDownload /> Download Resume
@@ -721,8 +722,10 @@ function App() {
               <h4 className="text-2xl font-semibold">{selectedProject.title}</h4>
               <p className="mt-3 text-slate-300">{selectedProject.details}</p>
               <p className="mt-4 text-sm text-fuchsia-300">{selectedProject.stack.join(' • ')}</p>
-              <div className="mt-6 flex gap-3">
-                <a href={selectedProject.demo} target="_blank" rel="noreferrer" className="chip"><FaExternalLinkAlt /> Live Demo</a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {selectedProject.demo && (
+                  <a href={selectedProject.demo} target="_blank" rel="noreferrer" className="chip"><FaExternalLinkAlt /> Live Demo</a>
+                )}
                 <a href={selectedProject.github} target="_blank" rel="noreferrer" className="chip"><FaGithub /> GitHub</a>
               </div>
             </motion.div>
